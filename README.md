@@ -45,4 +45,4 @@ for windows
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-click [here](http://localhost:8080) to see the web page.
+click [http://localhost:8080](http://localhost:8080) to see the web page.
