@@ -16,9 +16,9 @@ This section should list any major frameworks that you built your project using.
 
 ### Prerequisites
 
-1. Install Java using [this](https://docs.oracle.com/javase/9/install/installation-jdk-and-jre-linux-platforms.htm)
+1. Click [here](https://docs.oracle.com/javase/9/install/installation-jdk-and-jre-linux-platforms.htm) to install Java
 
-2. Install apache maven using [this](https://maven.apache.org/download.cgi)
+2. Click [here](https://maven.apache.org/download.cgi) to install apache maven
 
 
 ### Installation
