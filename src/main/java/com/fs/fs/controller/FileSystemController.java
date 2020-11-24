@@ -31,7 +31,7 @@ public class FileSystemController {
             uploadFile(file);
         }
 
-        attributes.addFlashAttribute("message", "You successfully uploaded all files");
+        attributes.addFlashAttribute("message", "Successfully uploaded all files");
 
         return "redirect:/";
     }
