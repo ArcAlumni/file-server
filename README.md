@@ -1,6 +1,3 @@
-<!-- ABOUT THE PROJECT -->
-## About The Project
-
 A simple browser based file transfer application
 
 ### Built With
