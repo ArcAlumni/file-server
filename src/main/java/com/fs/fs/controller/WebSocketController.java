@@ -11,14 +11,19 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.socket.WebSocketSession;
 
 @Controller
-@RequestMapping("/websocket")
+@RequestMapping
 public class WebSocketController {
 
     public static final List<WebSocketSession> sessions = new ArrayList<>();
 
-    @GetMapping
-    public String getWebSocket() {
+    @GetMapping("/websocket/text")
+    public String getWebSocketText() {
         return "ws-broadcast";
+    }
+
+    @GetMapping("/websocket/bin")
+    public String getWebSocketBin() {
+        return "index2";
     }
 
     @ResponseBody
