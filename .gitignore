@@ -7,7 +7,6 @@ java/release.properties
 java/dependency-reduced-pom.xml
 java/buildNumber.properties
 java/.mvn/timing.properties
-# https://github.com/takari/maven-wrapper#usage-without-binary-jar
 java/.mvn/wrapper/maven-wrapper.jar
 java/.vscode/
 java/.settings/
