@@ -37,6 +37,7 @@
     const sendImageButton = document.getElementById("sendImage");
 
     const socket = new WebSocket('ws://localhost:8080/web-socket');   
+    socket.binaryType = "arraybuffer";
 
     sendButton.onclick = function (event) {
         sendMessage(messageInput.value);
