@@ -6,10 +6,8 @@ const upload = multer({
 
 let router = express.Router();
 
-
 router.post('/', upload.single('file-to-upload'), (req, res) => {
  	res.redirect('/');
 });
-
 
 module.exports = router;

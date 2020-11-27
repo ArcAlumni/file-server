@@ -14,3 +14,4 @@ java/.factorypath/
 java/.classpath
 js/node_modules
 js/uploaded_files
+js/*.sublime-*
