@@ -8,6 +8,7 @@ const socketServer = new WebSocket.Server({port: 3000});
 const messages = ['Start Chatting!'];
 
 socketServer.on('connection', (socketClient) => {
+	
   	console.log('connected');
   	console.log('client Set length: ', socketServer.clients.size);  
 
