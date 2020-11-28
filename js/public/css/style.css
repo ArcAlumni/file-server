@@ -51,6 +51,28 @@ hr {
 	padding: 20px;
 }
 
+/*Style for Select File button*/
+#select-file-wrapper{
+    padding: 10px;
+    background: red; 
+    display: table;
+	color: #fff;
+	border-radius: 6px;
+	width: 30%;
+	font-family: 'Abel', sans-serif;
+	
+}
+
+#select-file-wrapper
+
+
+#file-select{
+    display: none;
+}
+
+
+
+/*Style for Accordion contents*/
 .accordion-wrapper{
 	font-family: 'Abel', sans-serif;
 }
