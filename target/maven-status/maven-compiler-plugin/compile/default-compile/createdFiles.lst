@@ -1,8 +1,0 @@
-com\fs\fs\config\WebSocketConfig.class
-com\fs\fs\handler\WebSocketHandler.class
-com\fs\fs\FsApplication.class
-com\fs\fs\config\WebConfig.class
-com\fs\fs\handler\SimpleTextWebSocketHandler.class
-com\fs\fs\controller\FileSystemController.class
-com\fs\fs\controller\WebSocketController.class
-com\fs\fs\ServletInitializer.class
