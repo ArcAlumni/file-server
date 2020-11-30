@@ -6,9 +6,7 @@ const files = [
 	{ id : 3, name : "file3" }
 ];
 
-
 let router = express.Router();
-
 
 router.route('/')
 .get((req, res) => {
@@ -25,13 +23,11 @@ router.route('/')
 	res.send(file);
 });
 
-
 router.get('/:id', (req, res) => {
 	const file = files.find(f => f.id === parseInt(req.params.id));
 	if(!file) return res.status(404).send('File id does not exists');
 	res.send(file);
 });
-
 
 function validate(file){
 	const schema = {
@@ -39,6 +35,5 @@ function validate(file){
 	}
 	return Joi.validate(file, schema);
 }
-
 
 module.exports = router;
