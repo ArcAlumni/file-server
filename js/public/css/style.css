@@ -60,7 +60,15 @@ hr {
 	border-radius: 6px;
 	width: 30%;
 	font-family: 'Abel', sans-serif;
+	float:left;
 	
+}
+
+#selected-file-count{
+	margin: 12px;
+	background-color: red;
+	color: whitesmoke;
+	padding: 6px;
 }
 
 

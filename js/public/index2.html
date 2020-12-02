@@ -8,7 +8,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-	<link href="css/style.css" rel="stylesheet" >
+	<link href="css/style.css" rel="stylesheet">
   </head>
   
   <body>
@@ -25,7 +25,8 @@
 			<div class="container form-btn-wrapper">
 				<div class="row">
 					<div class="col-sm-6">
-						<label id="select-file-wrapper">Select files <image src="images/file-select.png" alt="Select file"><input type="file" id="file-select" name="file-to-upload" multiple="true"></label>
+						<label id="select-file-wrapper">Select files: <image src="images/file-select.png" alt="Select file"><input type="file" id="file-select" name="file-to-upload" multiple="true"></label>
+						<span id="selected-file-count" class="badge"></span>
 						<!-- <input type="file" class="select-file-btn" name="file-to-upload"> -->
 					</div>
 
@@ -99,4 +100,5 @@
 	</div>
 
   </body>
+  <script src="/js/file-selector.js"></script>
 </html>
