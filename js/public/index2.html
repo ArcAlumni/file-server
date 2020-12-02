@@ -1,106 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <title>Simple Multer Upload Example</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-	<link href="css/style.css" rel="stylesheet" >
-  </head>
-  
-  <body>
-	<div class="jumbotron jumbotron-fluid sticky text-center">
-		<div class="container">
-		  <h1>File Sharing System</h1><hr id="head-line">
-		  <h4>Wireless File sharing across devices</h4>
-		  <p>Transfer and share your files across devices easily</p>
-		</div>
-	</div>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link href="css/style.css" rel="stylesheet">
+</head>
 
+<body>
+    <div class="jumbotron jumbotron-fluid sticky text-center">
+        <div class="container">
+            <h1>File Sharing System</h1>
+            <hr id="head-line">
+            <h4>Wireless File sharing across devices</h4>
+            <p>Transfer and share your files across devices easily</p>
+        </div>
+    </div>
     <div class="contrainer">
-		<form action="/uploads" enctype="multipart/form-data" method="post">
-			<div class="container form-btn-wrapper">
-				<div class="row">
-					<div class="col-sm-6">
-						<!-- <button type="file" class="btn btn-primary choose-btn" name="file-to-upload">Choose file</button> -->
-						<!-- <label for="file-to-upload" class="label label-default choose-btn-default-label">No file Selected</label> -->
-						<input type="file" class="select-file-btn" name="file-to-upload">
-					</div>
+        <form action="/uploads" enctype="multipart/form-data" method="post">
+            <div class="container form-btn-wrapper">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <!-- <button type="file" class="btn btn-primary choose-btn" name="file-to-upload">Choose file</button> -->
+                        <!-- <label for="file-to-upload" class="label label-default choose-btn-default-label">No file Selected</label> -->
+                        <input type="file" class="select-file-btn" name="file-to-upload">
+                    </div>
+                    <div class="col-sm-6">
+                        <!-- <button type="submit" class="btn btn-info upload-btn" value="Upload">Upload &nbsp <img src="images/upload-icon.PNG" alt="upload button" class="rounded-circle"></button> -->
+                        <!-- <input type="submit" value="Upload" class="btn btn-info upload-btn"> -->
+                        <!-- <input type="file"  name="file-to-upload"> -->
+                        <input type="submit" class="btn btn-primary upload-btn" value="Upload">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="container accordion-wrapper">
+        <div class="row">
+            <div class="col-sm-12">
+                <div id="accordion">
+                    <div class="card">
+                        <div class="card-header">
+                            <p id="collapse-title1">Recent</p>
+                            <a class="card-link" id="collapse-link1" data-toggle="collapse" href="#collapse-content-one">show</a>
+                        </div>
+                        <div id="collapse-content-one" class="collapse" data-parent="#accordion">
+                            <div class="card-body">
+                                <!-- show the recently uploaded files with filetype thumbnail and date-->
+                                <hr>
+                                <p><img src="images/text-files.png" alt="text file"> File 1 - placeholder file </p>
+                                <p class="upload-date"></p>
+                                <hr>
+                                <hr>
+                                <p><img src="images/pdf-file.png" alt="pdf file"> File 2 - placeholder file </p>
+                                <p class="upload-date"></p>
+                                <hr>
+                                <hr>
+                                <p><img src="images/js-file.png" alt="Js file"> File 3 - placeholder file </p>
+                                <p class="upload-date"></p>
+                                <hr>
+                                <p><img src="images/jar-file.png" alt="Jar file"> File 3 - placeholder file </p>
+                                <p class="upload-date"></p>
+                                <hr>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <p id="collapse-title2">
+                                Messages <span class="badge" id="message-bdg-count">4</span>
+                            </p>
+                            <a class="card-link" id="collapse-link2" data-toggle="collapse" href="#collapse-content-two">show</a>
+                        </div>
+                        <div id="collapse-content-two" class="collapse" data-parent="#accordion">
+                            <div class="card-body">
+                                <!-- show the message conversations here-->
+                                <hr>
+                                <p class="user-name"><span id="user-name1">Username 1 : </span></p>
+                                <p class="message-info"><span id="message-content1">Message 1</span></p>
+                                <hr>
+                                <hr>
+                                <p class="user-name"><span id="user-name1">Username 2 : </span></p>
+                                <p class="message-info"><span id="message-content1">Message 2</span></p>
+                                <hr>
+                                <hr>
+                                <p class="user-name"><span id="user-name1">Username 3 : </span></p>
+                                <p class="message-info"><span id="message-content1">Message 3</span></p>
+                                <hr>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
 
-					<div class="col-sm-6">
-						<!-- <button type="submit" class="btn btn-info upload-btn" value="Upload">Upload &nbsp <img src="images/upload-icon.PNG" alt="upload button" class="rounded-circle"></button> -->
-						<!-- <input type="submit" value="Upload" class="btn btn-info upload-btn"> -->
-						<!-- <input type="file"  name="file-to-upload"> -->
-						<input type="submit" class="btn btn-primary upload-btn" value="Upload">
-					</div>
-				</div>
-			</div>
-		</form> 
-	</div>
-	
-	<div class="container accordion-wrapper">			
-		<div class="row">
-			<div class="col-sm-12">
-				<div id="accordion">
-					<div class="card">
-						<div class="card-header">
-							<p id="collapse-title1">Recent</p>				
-							<a class="card-link" id="collapse-link1" data-toggle="collapse" href="#collapse-content-one">show</a>									
-						</div>
-						<div id="collapse-content-one" class="collapse" data-parent="#accordion">
-							<div class="card-body">
-								<!-- show the recently uploaded files with filetype thumbnail and date-->
-								<hr>
-								<p><img src="images/text-files.png" alt="text file"> File 1 - placeholder file </p>
-								<p class="upload-date"></p>
-								<hr>
-								<hr>
-								<p><img src="images/pdf-file.png" alt="pdf file"> File 2 - placeholder file </p>
-								<p class="upload-date"></p>
-								<hr>
-								<hr>
-								<p><img src="images/js-file.png" alt="Js file"> File 3 - placeholder file </p>
-								<p class="upload-date"></p>
-								<hr>
-								<p><img src="images/jar-file.png" alt="Jar file"> File 3 - placeholder file </p>
-								<p class="upload-date"></p>
-								<hr>
-							</div>
-						</div>
-					</div>
-								
-					<div class="card">
-						<div class="card-header">
-							<p id="collapse-title2">								
-								Messages <span class="badge" id="message-bdg-count">4</span>								
-							</p>				
-							<a class="card-link" id="collapse-link2" data-toggle="collapse" href="#collapse-content-two">show</a>									
-						</div>
-						<div id="collapse-content-two" class="collapse" data-parent="#accordion">
-							<div class="card-body">
-								<!-- show the message conversations here-->
-								<hr>
-								<p class="user-name"><span id="user-name1">Username 1 : </span></p>
-								<p class="message-info"><span id="message-content1">Message 1</span></p>
-								<hr>	
-								<hr>
-								<p class="user-name"><span id="user-name1">Username 2 : </span></p>
-								<p class="message-info"><span id="message-content1">Message 2</span></p>
-								<hr>
-								<hr>							
-								<p class="user-name"><span id="user-name1">Username 3 : </span></p>
-								<p class="message-info"><span id="message-content1">Message 3</span></p>
-								<hr>	
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>	
-		</div>		
-	</div>
-
-  </body>
 </html>

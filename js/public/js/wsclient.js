@@ -1,4 +1,4 @@
-const ws = new WebSocket('ws://localhost:3000');
+const ws = new WebSocket('ws://' + window.location.host.split(':')[0] + ':3000');
 
 ws.onopen = () => {
     console.log('connected');
@@ -13,7 +13,6 @@ ws.onerror = error => {
 };
 
 ws.onmessage = event => {
-    console.log('received', event.data);
     let li = document.createElement('li');
     li.innerText = event.data;
     document.querySelector('#chat').append(li);

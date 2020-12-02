@@ -1,37 +1,58 @@
 const WebSocket = require('ws');
-let socketServer = undefined;
+
+let clients = {};
 
 module.exports = {
+
     startServer: function() {
-        socketServer = new WebSocket.Server({ port: 3000 })
-        socketServer.on('connection', (client) => onServer(client));
+        serverSocket = new WebSocket.Server({ port: 3000 })
+        serverSocket.on('connection', (client) => onServer(serverSocket, client));
+    },
+
+    listClients: function() {
+        let clients = [];
+        serverSocket.clients.forEach(client => {
+            clients.push(client);
+        });
+        return clients;
     }
 }
 
-function onServer(client) {
-    onOpen(client);
-    client.on('message', (message) => onMessage(client, message));
-    client.on('close', (client) => onClose(client));
+function onServer(serverSocket, clientSocket) {
+    onOpen(serverSocket, clientSocket);
+    clientSocket.on('message', (message) => onMessage(serverSocket, clientSocket, message));
+    clientSocket.on('close', (clientSocket) => onClose(serverSocket, clientSocket));
 }
 
-function onOpen(client) {
-    console.log('connected ' + client);
-    console.log('client Set length: ', socketServer.clients.size);
+function onOpen(serverSocket, clientSocket) {
+    console.log('client connected ' + clientSocket._socket.remoteAddress);
+    clients[clientSocket._socket.remoteAddress] = clientSocket;
 }
 
-function onMessage(client, message) {
-    client.send('response from server for message : ' + message);
+function onMessage(serverSocket, clientSocket, message) {
+    clientSocket.send('response from server for message : ' + message);
 }
 
-function onMessageBroadcast(message) {
-    socketServer.clients.forEach((client) => {
-        if (client.readyState === WebSocket.OPEN) {
-            client.send('response from server for message : ' + message);
+function onMessageBroadcast(serverSocket, message) {
+    socketServer.clients.forEach((clientSocket) => {
+        if (clientSocket.readyState === WebSocket.OPEN) {
+            clientSocket.send('response from server for message : ' + message);
         }
     });
 }
 
-function onClose(client) {
-    console.log('closed ' + client);
-    console.log('Number of clients: ', socketServer.clients.size);
+function onClose(serverSocket, code) {
+    console.log('client closed ' + code);
+
+    let clientsFromServer = [];
+
+    serverSocket.clients.forEach(client => {
+        clientsFromServer.push(client._socket._peername.address);
+    });
+
+    for (key in clients) {
+        if (!clientsFromServer.includes(key)) {
+            delete clients[key];
+        }
+    }
 }
