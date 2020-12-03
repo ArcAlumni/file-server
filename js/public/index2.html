@@ -12,6 +12,7 @@
   </head>
   
   <body>
+	<!--Header Contents inside a Jumbotron BS class-->
 	<div class="jumbotron jumbotron-fluid text-center">
 		<div class="container">
 		  <h1>File Sharing System</h1><hr id="head-line">
@@ -20,6 +21,17 @@
 		</div>
 	</div>
 
+	<!--Sidebar contents-->
+	<div id="chat-sidebar" class="sidebar">
+		<div class="sidebar-link-wrapper">
+			<a href="#">Chatroom <span>: <i class="arrow right"></i></span></a>
+		</div>
+	</div>
+	<div class="sidebar-toggle-btn">
+		<div class="toggle-icon">☰</div>
+	</div>
+	
+	<!--Form Contents-->
     <div class="contrainer">
 		<form action="/uploads" enctype="multipart/form-data" method="post">
 			<div class="container form-btn-wrapper">
@@ -35,8 +47,8 @@
 				</div>
 			</div>
 		</form> 
-	</div>
-	
+	</div>	
+	<!--Main body contents inside a collapsible panel group a.k.a Accordion-->
 	<div class="container accordion-wrapper">			
 		<div class="row">
 			<div class="col-sm-12">
