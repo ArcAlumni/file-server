@@ -12,7 +12,7 @@ module.exports = {
     listClients: function() {
         let clients = [];
         serverSocket.clients.forEach(client => {
-            clients.push(client);
+            clients.push(client._socket.remoteAddress);
         });
         return clients;
     }
