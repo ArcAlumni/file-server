@@ -22,9 +22,32 @@
 	</div>
 
 	<!--Sidebar contents-->
-	<div id="chat-sidebar" class="sidebar">
-		<div class="sidebar-link-wrapper">
-			<a href="#">Chatroom <span>: <i class="arrow right"></i></span></a>
+	<div class="sidebar-wrapper">
+		<div id="chat-sidebar" class="sidebar">
+			<div class="sidebar-link-wrapper">
+				<a href="#channel-list" data-toggle="collapse" class="channel-list-header">Chatroom <span>&nbsp;<i class="arrow right"></i></span></a>
+				<div id="channel-list" class="channel-links-wrapper collapse">
+					<div id="channel-link-1" class="channel-link">
+						<a href="#">Text-Channel 1 </a>
+					</div>
+					<div id="channel-link-2" class="channel-link">
+						<a href="#">Text-Channel 2 </a>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<div id="channel-1" class="sidebar">
+			<div class="channel-title">
+				<div id="channelname">Channel name</div>
+				<ul id="chat"></ul>
+				<form>
+					<textarea rows="20" cols="60" id="message"></textarea>
+					<br />
+					<input type="text" id="sendername">					
+					<button type="submit">Send</button>
+				</form>				
+			</div>
 		</div>
 	</div>
 	<div class="sidebar-toggle-btn">
@@ -112,4 +135,6 @@
 
   </body>
   <script src="/js/file-selector.js"></script>
+  <script src="/js/chat-sidebar.js"></script>
+  <script src="/js/wsclient.js"></script>
 </html>
