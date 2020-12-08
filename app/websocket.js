@@ -4,12 +4,12 @@ let clients = {};
 
 module.exports = {
 
-    startServer: function() {
+    startServer: function () {
         serverSocket = new WebSocket.Server({ port: 3000 })
         serverSocket.on('connection', (client) => onServer(serverSocket, client));
     },
 
-    listClients: function() {
+    listClients: function () {
         let clients = [];
         serverSocket.clients.forEach(client => {
             clients.push(client);

@@ -15,7 +15,7 @@ app.get('/chatroomclients', (req, res) => {
     res.send(websocket.listClients());
 })
 
-const port = process.env.port || 9000;
+const port = 9000;
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);
 });
