@@ -1,1 +1,1 @@
-docker stop fs-app
+docker-compose down
