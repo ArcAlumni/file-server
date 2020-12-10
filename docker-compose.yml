@@ -1,14 +1,19 @@
 version: '2'
 
-networks: 
-  fs-network:
-
 services:
 
   file-server-app:
     build: ./app/
     container_name: fs-app
+    depends_on:
+      - fs-app-nginx
     ports:
       - 9000:9000
-    networks:
-      fs-network:
+
+  fs-app-nginx: 
+    image: nginx
+    container_name: fs-nginx
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - 8080:8080
