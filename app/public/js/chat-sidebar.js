@@ -26,7 +26,15 @@ $(".sidebar-toggle-btn").click(function(){
 });
 
 $(".channel-list-header").click(function(){
-    $(".arrow").toggleClass("right").toggleClass("down");
+    $(".arrow").toggleClass("right").toggleClass("down");        
+    $("#channel-list").css("height","220px");
+});
+
+$(".channel-list-header").click(function(){
+    var channellistHeight = $("#channel-list").css("height");
+    if (channellistHeight == "220px"){
+        $("#channel-list").css("height","0px");
+    }
 });
 
 $("#channel-link-1").click(function(){
@@ -39,3 +47,10 @@ $("#channel-link-1").click(function(){
         $('#channel-1').css("width","0px");        
     }
 });
+
+$(".home").mouseover(function(){
+    $("#homeicon").attr('src','images/home-white.png');    
+  });
+  $(".home").mouseout(function(){
+    $("#homeicon").attr('src','images/home.png');
+  });

@@ -4,136 +4,92 @@
     <title>Simple Multer Upload Example</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 	<link href="css/style.css" rel="stylesheet">
   </head>
   
   <body>
-	<!--Header Contents inside a Jumbotron BS class-->
-	<div class="jumbotron jumbotron-fluid text-center">
-		<div class="container">
-		  <h1>File Sharing System</h1><hr id="head-line">
-		  <h4>Wireless File sharing across devices</h4>
-		  <p>Transfer and share your files across devices easily</p>
+	<div class="container">    
+		<!--Header-->
+		<div class="header-wrapper">                
+			<div class="header-content-wrapper">
+				<h2>File Sharing System</h2>
+				<div class="horizontal-line"></div>
+				<h4>Wireless File sharing across devices</h4>
+			</div>
 		</div>
-	</div>
-
-	<!--Sidebar contents-->
-	<div class="sidebar-wrapper">
-		<div id="chat-sidebar" class="sidebar">
-			<div class="sidebar-link-wrapper">
-				<a href="#channel-list" data-toggle="collapse" class="channel-list-header">Chatroom <span>&nbsp;<i class="arrow right"></i></span></a>
-				<div id="channel-list" class="channel-links-wrapper collapse">
-					<div id="channel-link-1" class="channel-link">
-						<a href="#">Text-Channel 1 </a>
-					</div>
-					<div id="channel-link-2" class="channel-link">
-						<a href="#">Text-Channel 2 </a>
-					</div>
+						   
+		<!--Navigation panel-->
+		<div class="nav-wrapper">
+			<div class="nav-left">
+				<div class="nav-link-wrapper">
+					<div class="home"><a href="#"><image id="homeicon" src="images/home.png"></a></div>                            
+					<div class="about"><a href="#">About</a></div>
 				</div>
+			</div>
+			<div class="nav-right">
+				<div class="brand-info">FTP</div>
+			</div>                
+		</div>
 
-			</div>
-		</div>
-		<div id="channel-1" class="sidebar">
-			<div class="channel-title">
-				<div id="channelname">Channel name</div>
-				<ul id="chat"></ul>
-				<form>
-					<textarea rows="20" cols="60" id="message"></textarea>
-					<br />
-					<input type="text" id="sendername">					
-					<button type="submit">Send</button>
-				</form>				
-			</div>
-		</div>
-	</div>
-	<div class="sidebar-toggle-btn">
-		<div class="toggle-icon">☰</div>
-	</div>
-	
-	<!--Form Contents-->
-    <div class="contrainer">
-		<form action="/uploads" enctype="multipart/form-data" method="post">
-			<div class="container form-btn-wrapper">
-				<div class="row">
-					<div class="col-sm-6">
-						<label id="select-file-wrapper">Select files: <image src="images/file-select.png" alt="Select file"><input type="file" id="file-select" name="file-to-upload" multiple="true"></label>
-						<span id="selected-file-count" class="badge"></span>						
+		<!--Sidebar contents-->
+		<div class="sidebar-wrapper">
+			<div id="chat-sidebar" class="sidebar">
+				<div class="sidebar-link-wrapper">
+					<a class="channel-list-header">Chatroom <span>&nbsp;<i class="arrow right"></i></span></a>
+					<div id="channel-list" class="channel-links-wrapper">
+						<div id="channel-link-1" class="channel-link">
+							<a href="#">Text-Channel 1 </a>
+						</div>
+						<div id="channel-link-2" class="channel-link">
+							<a href="#">Text-Channel 2 </a>
+						</div>
 					</div>
 
-					<div class="col-sm-6">
+				</div>
+			</div>
+			<div id="channel-1" class="sidebar">
+				<div class="channel-title">
+					<div id="channelname">Channel name</div>
+					<ul id="chat"></ul>
+					<form>
+						<textarea rows="20" cols="60" id="message"></textarea>
+						<br />
+						<input type="text" id="sendername">					
+						<button type="submit">Send</button>
+					</form>				
+				</div>
+			</div>
+		</div>
+		<div class="sidebar-toggle-btn">
+			<div class="toggle-icon">☰</div>
+		</div> 
+		
+		<!--Form Contents-->
+		<div class="form-wrapper">
+			<div></div>
+			<div class="form-content-wrapper">
+				<div></div>
+				<form class="file-upload" action="/uploads" enctype="multipart/form-data" method="post">
+					<div></div>
+					<div class="select-wrapper">
+						<label id="select-file-wrapper">Select files <input type="file" id="file-select" name="file-to-upload" multiple="true"></label>
+						<span id="selected-file-count"></span>
+					</div>
+					<div></div>
+					<div class="upload-wrapper">
 						<label id="upload-file-wrapper"><image src="images/upload-icon.png" alt="Select file"></image><input type="submit" id="file-upload" class="upload-btn" value="Upload"> &nbsp;Upload</label>
 					</div>
-				</div>
-			</div>
-		</form> 
-	</div>	
-	<!--Main body contents inside a collapsible panel group a.k.a Accordion-->
-	<div class="container accordion-wrapper">			
-		<div class="row">
-			<div class="col-sm-12">
-				<div id="accordion">
-					<div class="card">
-						<div class="card-header">
-							<p id="collapse-title1">Recent</p>				
-							<a class="card-link" id="collapse-link1" data-toggle="collapse" href="#collapse-content-one">show</a>									
-						</div>
-						<div id="collapse-content-one" class="collapse" data-parent="#accordion">
-							<div class="card-body">
-								<!-- show the recently uploaded files with filetype thumbnail and date-->
-								<hr>
-								<p><img src="images/text-files.png" alt="text file"> File 1 - placeholder file </p>
-								<p class="upload-date"></p>
-								<hr>
-								<hr>
-								<p><img src="images/pdf-file.png" alt="pdf file"> File 2 - placeholder file </p>
-								<p class="upload-date"></p>
-								<hr>
-								<hr>
-								<p><img src="images/js-file.png" alt="Js file"> File 3 - placeholder file </p>
-								<p class="upload-date"></p>
-								<hr>
-								<p><img src="images/jar-file.png" alt="Jar file"> File 3 - placeholder file </p>
-								<p class="upload-date"></p>
-								<hr>
-							</div>
-						</div>
-					</div>
-								
-					<div class="card">
-						<div class="card-header">
-							<p id="collapse-title2">								
-								Messages <span class="badge" id="message-bdg-count">4</span>								
-							</p>				
-							<a class="card-link" id="collapse-link2" data-toggle="collapse" href="#collapse-content-two">show</a>									
-						</div>
-						<div id="collapse-content-two" class="collapse" data-parent="#accordion">
-							<div class="card-body">
-								<!-- show the message conversations here-->
-								<hr>
-								<p class="user-name"><span id="user-name1">Username 1 : </span></p>
-								<p class="message-info"><span id="message-content1">Message 1</span></p>
-								<hr>	
-								<hr>
-								<p class="user-name"><span id="user-name2">Username 2 : </span></p>
-								<p class="message-info"><span id="message-content2">Message 2</span></p>
-								<hr>
-								<hr>							
-								<p class="user-name"><span id="user-name3">Username 3 : </span></p>
-								<p class="message-info"><span id="message-content3">Message 3</span></p>
-								<hr>	
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>	
-		</div>		
+					<div></div>
+				</form>
+				<div></div>
+			</div> 
+			<div></div>
+		</div> 
+		 
 	</div>
-
-  </body>
+</body>
   <script src="/js/file-selector.js"></script>
   <script src="/js/chat-sidebar.js"></script>
   <script src="/js/wsclient.js"></script>
